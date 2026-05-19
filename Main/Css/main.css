@@ -1,0 +1,21 @@
+body{
+    background-color: gray;
+    color:black
+}
+nav{
+    height: 600px;
+    width: 200px;
+    float: left;
+    padding: 5px;
+    line-height: 30px;
+}
+footer{
+    text-align: center;
+    line-height: 200px;
+}
+image{
+    margin-right: 200px;
+}
+header{
+    text-align: center;
+}
