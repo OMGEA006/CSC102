@@ -60,7 +60,7 @@ function playQuarksCraps() {
     if (playQuarksCraps.currentPoint === null) {
         // Come-out roll
         if (diceSum === 7 || diceSum === 11) {
-            resultMessage = "Natural! You win " + chipWager + " quark chips!";
+            resultMessage = "You Lose " + chipWager - " quark chips!";
         } else if (diceSum === 2 || diceSum === 3 || diceSum === 12) {
             resultMessage = "Craps — you lose " + chipWager + " quark chips!";
         } else {
@@ -73,7 +73,7 @@ function playQuarksCraps() {
         if (diceSum === playQuarksCraps.currentPoint) {
             resultMessage = "You hit your point! You win " + chipWager + " quark chips!";
             playQuarksCraps.currentPoint = null; // reset for next game
-        } else if (diceSum === 7) {
+        } else if (diceSum === 7 || diceSum === 11) {
             resultMessage = "Seven-out — you lose " + chipWager + " quark chips!";
             playQuarksCraps.currentPoint = null; // reset for next game
         } else {
