@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<!-- Student Name: Jayse Monty -->
+<html lang="en">
+<!-- Opens the HTML document and sets the page language to English. -->
+<head>
+    <!-- Opens the head section for page settings and linked files. -->
+    <meta charset="UTF-8">
+    <!-- Allows the page to display standard text and symbols correctly. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Makes the webpage responsive on phones, tablets, and computers. -->
+    <title>Secure Message Vault</title>
+    <!-- Sets the title displayed on the browser tab. -->
+
+    <style>
+        /* Styles the entire webpage background and default font. */
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Trebuchet MS", Arial, sans-serif;
+            background: linear-gradient(135deg, #07111f, #102a43, #0b3d2e);
+            color: #f4f7fb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Styles the main security card. */
+        .vault-card {
+            width: 90%;
+            max-width: 680px;
+            padding: 32px;
+            border: 2px solid #45e0a8;
+            border-radius: 22px;
+            background-color: rgba(4, 16, 28, 0.94);
+            box-shadow: 0 0 30px rgba(69, 224, 168, 0.35);
+            text-align: center;
+        }
+
+        /* Styles the lock icon at the top of the page. */
+        .lock-icon {
+            font-size: 4rem;
+            margin-bottom: 8px;
+        }
+
+        /* Styles the main page heading. */
+        h1 {
+            margin: 0;
+            color: #45e0a8;
+            letter-spacing: 1px;
+        }
+
+        /* Styles the introductory paragraph. */
+        .subtitle {
+            margin: 12px auto 24px;
+            max-width: 520px;
+            color: #c8d8e8;
+            line-height: 1.5;
+        }
+
+        /* Adds spacing around each form input group. */
+        .form-row {
+            margin: 18px 0;
+            text-align: left;
+        }
+
+        /* Styles the labels above each text box. */
+        label {
+            display: block;
+            margin-bottom: 7px;
+            color: #8ff0cd;
+            font-weight: bold;
+        }
+
+        /* Styles all text input boxes. */
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px;
+            border: 2px solid #31536f;
+            border-radius: 10px;
+            background-color: #f8fbff;
+            color: #07111f;
+            font-size: 1rem;
+        }
+
+        /* Changes the input border when the user selects a text box. */
+        input:focus {
+            outline: none;
+            border-color: #45e0a8;
+            box-shadow: 0 0 8px rgba(69, 224, 168, 0.5);
+        }
+
+        /* Styles the submit button. */
+        button {
+            width: 100%;
+            margin-top: 12px;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background-color: #45e0a8;
+            color: #07111f;
+            font-size: 1.05rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Adds a visual effect when the mouse moves over the button. */
+        button:hover {
+            background-color: #8ff0cd;
+            transform: translateY(-1px);
+        }
+
+        /* Styles the validation message area. */
+        #validationMessage {
+            min-height: 26px;
+            margin-top: 18px;
+            color: #ff9a9a;
+            font-weight: bold;
+            line-height: 1.5;
+        }
+
+        /* Styles the secret message output area. */
+        #secretMessage {
+            margin-top: 18px;
+            padding: 20px;
+            border-radius: 14px;
+            background-color: #0d2438;
+            min-height: 70px;
+            line-height: 1.6;
+        }
+
+        /* Styles the successful access message. */
+        .success {
+            color: #8ff0cd;
+            font-size: 1.15rem;
+            font-weight: bold;
+        }
+
+        /* Styles the small security note at the bottom. */
+        .security-note {
+            margin-top: 20px;
+            color: #91a9bd;
+            font-size: 0.9rem;
+        }
+    </style>
+    <!-- Ends the internal CSS styling section. -->
+
+    <script src="/Main//Js/strings.js" defer></script>
+    <!-- Links the external JavaScript file to this HTML page. -->
+</head>
+<!-- Ends the head section. -->
+
+<body>
+    <!-- Opens the visible content area of the webpage. -->
+    <main class="vault-card">
+        <!-- Creates the main secure message card. -->
+        <div class="lock-icon">🔐</div>
+        <!-- Displays a creative lock icon. -->
+
+        <h1>Secure Message Vault</h1>
+        <!-- Displays the main page heading. -->
+
+        <p class="subtitle">
+            Enter your identity information correctly to unlock the protected message.
+        </p>
+        <!-- Gives the user instructions before completing the form. -->
+
+        <form onsubmit="validateAccess(); return false;">
+            <!-- Creates one form that submits all user inputs at the same time. -->
+
+            <div class="form-row">
+                <!-- Opens the first name input group. -->
+                <label for="firstName">First Name</label>
+                <!-- Labels the first name input box. -->
+                <input type="text" id="firstName" placeholder="Enter your first name">
+                <!-- Lets the user enter their first name. -->
+            </div>
+            <!-- Closes the first name input group. -->
+
+            <div class="form-row">
+                <!-- Opens the last name input group. -->
+                <label for="lastName">Last Name</label>
+                <!-- Labels the last name input box. -->
+                <input type="text" id="lastName" placeholder="Enter your last name">
+                <!-- Lets the user enter their last name. -->
+            </div>
+            <!-- Closes the last name input group. -->
+
+            <div class="form-row">
+                <!-- Opens the ZIP code input group. -->
+                <label for="zipCode">ZIP Code</label>
+                <!-- Labels the ZIP code input box. -->
+                <input type="text" id="zipCode" placeholder="Enter exactly 5 digits" maxlength="5">
+                <!-- Lets the user enter a five-digit ZIP code. -->
+            </div>
+            <!-- Closes the ZIP code input group. -->
+
+            <button type="submit">Unlock Secret Message</button>
+            <!-- Creates the single submit button for the form. -->
+        </form>
+        <!-- Closes the form. -->
+
+        <p id="validationMessage"></p>
+        <!-- Gives JavaScript a place to display validation errors using textContent. -->
+
+        <section id="secretMessage">
+            <!-- Gives JavaScript a place to display the protected message using innerHTML. -->
+            <p>The vault is locked. Valid information is required.</p>
+            <!-- Displays the starting message before the user submits the form. -->
+        </section>
+        <!-- Closes the secret message section. -->
+
+        <p class="security-note">Security Check: Name length and ZIP format must both pass.</p>
+        <!-- Displays a final creative security reminder. -->
+    </main>
+    <!-- Closes the main secure message card. -->
+</body>
+<!-- Ends the visible webpage content. -->
+</html>
+<!-- Ends the HTML document. -->
