@@ -1,0 +1,142 @@
+''<!DOCTYPE html>
+<!-- Student Name: Jayse Monty -->
+<html lang="en">
+<!-- Opens the HTML document. -->
+
+<head>
+    <!-- Opens the head section. -->
+
+    <meta charset="UTF-8">
+    <!-- Sets the character type. -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Makes the page fit different screen sizes. -->
+
+    <title>Palindrome Checker</title>
+    <!-- Sets the browser tab title. -->
+
+    <style>
+        /* Changes the background color and font. */
+        body {
+            background-color: lightblue;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        /* Styles the main box. */
+        .mainBox {
+            width: 70%;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            border: 2px solid black;
+        }
+
+        /* Changes the heading color. */
+        h1 {
+            color: darkblue;
+        }
+
+        /* Adds space around the input area. */
+        .formRow {
+            margin: 20px;
+        }
+
+        /* Styles the text box. */
+        input {
+            padding: 8px;
+            width: 70%;
+        }
+
+        /* Styles the button. */
+        button {
+            padding: 10px 20px;
+            background-color: lightgreen;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+
+        /* Styles the validation message. */
+        #validationMessage {
+            color: red;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        /* Styles the result box. */
+        #palindromeResult {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #eeeeee;
+            border: 1px solid gray;
+        }
+
+        /* Styles a palindrome result. */
+        .success {
+            color: green;
+            font-weight: bold;
+        }
+
+        /* Styles a non-palindrome result. */
+        .notPalindrome {
+            color: darkorange;
+            font-weight: bold;
+        }
+    </style>
+    <!-- Ends the CSS section. -->
+
+    <script src="/Main/Js/Palindrome.js" defer></script>
+    <!-- Links the JavaScript file. -->
+</head>
+<!-- Ends the head section. -->
+
+<body>
+    <!-- Opens the page body. -->
+
+    <div class="mainBox">
+        <!-- Creates the main content box. -->
+
+        <h1>Palindrome Checker</h1>
+        <!-- Displays the page title. -->
+
+        <p>Enter a word or phrase to see if it is a palindrome.</p>
+        <!-- Gives the user instructions. -->
+
+        <form onsubmit="return false;">
+            <!-- Creates the form for the input and button. -->
+
+            <div class="formRow">
+                <!-- Groups the label and text box. -->
+
+                <label for="userString">Enter a word or phrase:</label>
+                <!-- Labels the text box. -->
+
+                <br>
+                <!-- Moves the text box to the next line. -->
+
+                <input type="text" id="userString">
+                <!-- Lets the user type a word or phrase. -->
+            </div>
+            <!-- Ends the input group. -->
+
+            <button type="submit" onclick="checkPalindrome()">Check</button>
+            <!-- Calls the JavaScript function when clicked. -->
+        </form>
+        <!-- Ends the form. -->
+
+        <div id="validationMessage"></div>
+        <!-- Shows validation messages using innerHTML. -->
+
+        <div id="palindromeResult">
+            <!-- Shows palindrome messages using innerHTML. -->
+
+            <p>Result will show here.</p>
+            <!-- Shows the starting message. -->
+        </div>
+        <!-- Ends the result box. -->
+    </div>
+    <!-- Ends the main content box. -->
+</body>
+<!-- Ends the body. -->
+
+</html>

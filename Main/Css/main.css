@@ -19,3 +19,10 @@ image{
 header{
     text-align: center;
 }
+  /* Creates the movement area for the meme image. */
+        #movementArea {
+            position: relative;
+            width: 100vw;
+            height: calc(100vh - 190px);
+            overflow: hidden;
+}
