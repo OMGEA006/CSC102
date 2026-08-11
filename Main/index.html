@@ -18,14 +18,36 @@
         <a href="Table.html">Table</a>
         <a href="Boards_Page.html">Boards Page</a> 
         <a href="game.html">Game</a>
-        <script src="/Main/Js/move.js"></script>
     <!-- Below is the paragrpah text that is displayed on the webpage-->
      <p>
         Welcome to the index page. The highway to anywhere for a website.
     </p>
     <!-- This is the image that is displayed on the webpage-->
-    <img src="Meme.png" alt="Highway to anywhere" width="500" height="300">
     </nav>
+        <p class="instructions">Press Start to launch the meme. Press Stop to freeze it.</p>
+        <!-- Gives the user simple instructions. -->
+        <form onsubmit="return false;">
+            <!-- Creates one form containing both submit buttons. -->
+            <button id="startButton" type="submit" onclick="startMemeMovement()">Start</button>
+            <!-- Calls the Start function when clicked. -->
+            <button id="stopButton" type="submit" onclick="stopMemeMovement()" disabled>Stop</button>
+            <!-- Calls the Stop function when clicked and begins disabled. -->
+        </form>
+        <!-- Closes the button form. -->
+        <script src="/Main/Js/move.js" defer></script>
+        <p id="statusMessage">The meme is waiting for launch.</p>
+        <!-- Gives JavaScript a place to display messages using innerHTML. -->
+    </header>
+    <!-- Closes the heading section. -->
+
+    <main id="movementArea">
+        <!-- Creates the area where the meme can move. -->
+
+        <img id="memeImage" src="Meme.png" alt="Funny mission meme">
+        <!-- Displays the meme image that JavaScript moves around the page. -->
+    </main>
+    <!-- Closes the movement area. -->
+<!-- Ends the visible webpage body. -->
 </header>
 </body>
 <link rel="stylesheet" href="Css/main.css">

@@ -1,127 +1,77 @@
+// Stores the timer used to move the meme.
 var movementTimer = null;
 
-// Stores the horizontal position of the meme image.
-var memeX = 40;
-
-// Stores the vertical position of the meme image.
-var memeY = 40;
-
-// Stores the horizontal movement speed.
-var speedX = 6;
-
-// Stores the vertical movement speed.
-var speedY = 5;
-
-// This function disables Start, enables Stop, and begins moving the meme.
+// This function starts the meme movement.
 function startMemeMovement() {
-    // Gets the Start button from the HTML page.
+    // Gets the Start button.
     var startButton = document.getElementById("startButton");
 
-    // Gets the Stop button from the HTML page.
+    // Gets the Stop button.
     var stopButton = document.getElementById("stopButton");
 
-    // Gets the message paragraph from the HTML page.
+    // Gets the status message.
     var statusMessage = document.getElementById("statusMessage");
 
-    // Disables the Start button while the meme is already moving.
+    // Disables the Start button.
     startButton.disabled = true;
 
-    // Enables the Stop button so the user can stop the movement.
+    // Enables the Stop button.
     stopButton.disabled = false;
 
-    // Displays a message on the webpage using innerHTML.
-    statusMessage.innerHTML = "Mission active: the meme is moving!";
+    // Shows a message on the page.
+    statusMessage.innerHTML = "The meme is moving!";
 
-    // Calls the separate function that starts the repeating movement.
-    beginMovement();
+    // Starts moving the meme every half second.
+    movementTimer = setInterval(moveMeme, 500);
 }
 
-// This function enables Start, disables Stop, and stops the meme movement.
+// This function stops the meme movement.
 function stopMemeMovement() {
-    // Gets the Start button from the HTML page.
+    // Gets the Start button.
     var startButton = document.getElementById("startButton");
 
-    // Gets the Stop button from the HTML page.
+    // Gets the Stop button.
     var stopButton = document.getElementById("stopButton");
 
-    // Gets the message paragraph from the HTML page.
+    // Gets the status message.
     var statusMessage = document.getElementById("statusMessage");
 
-    // Enables the Start button so movement can be started again.
+    // Stops the movement timer.
+    clearInterval(movementTimer);
+
+    // Enables the Start button.
     startButton.disabled = false;
 
-    // Disables the Stop button because the meme is no longer moving.
+    // Disables the Stop button.
     stopButton.disabled = true;
 
-    // Displays a stopped message on the webpage using innerHTML.
-    statusMessage.innerHTML = "Mission paused: the meme has stopped.";
-
-    // Calls the separate function that stops the repeating movement.
-    endMovement();
+    // Shows a message on the page.
+    statusMessage.innerHTML = "The meme has stopped.";
 }
 
-// This function starts a timer that repeatedly calls the movement function.
-function beginMovement() {
-    // Prevents more than one timer from running at the same time.
-    if (movementTimer === null) {
-        // Calls moveMeme every 30 milliseconds.
-        movementTimer = setInterval(moveMeme, 30);
-    }
-}
-
-// This function stops the timer that moves the meme.
-function endMovement() {
-    // Checks whether a movement timer is currently running.
-    if (movementTimer !== null) {
-        // Stops the repeating timer.
-        clearInterval(movementTimer);
-
-        // Resets the timer variable so movement can be started again.
-        movementTimer = null;
-    }
-}
-
-// This function changes the meme position and makes it bounce off page edges.
+// This function moves the meme to a random location.
 function moveMeme() {
-    // Gets the meme image from the HTML page.
+    // Gets the meme image.
     var memeImage = document.getElementById("memeImage");
 
-    // Gets the movement area from the HTML page.
+    // Gets the movement area.
     var movementArea = document.getElementById("movementArea");
 
-    // Calculates the maximum horizontal position inside the movement area.
-    var maximumX = movementArea.clientWidth - memeImage.offsetWidth;
+    // Calculates the maximum horizontal position.
+    var maxX = movementArea.clientWidth - memeImage.offsetWidth;
 
-    // Calculates the maximum vertical position inside the movement area.
-    var maximumY = movementArea.clientHeight - memeImage.offsetHeight;
+    // Calculates the maximum vertical position.
+    var maxY = movementArea.clientHeight - memeImage.offsetHeight;
 
-    // Adds the horizontal speed to the current horizontal position.
-    memeX = memeX + speedX;
+    // Creates a random horizontal position.
+    var randomX = Math.floor(Math.random() * maxX);
 
-    // Adds the vertical speed to the current vertical position.
-    memeY = memeY + speedY;
+    // Creates a random vertical position.
+    var randomY = Math.floor(Math.random() * maxY);
 
-    // Checks whether the meme reached the left or right edge.
-    if (memeX <= 0 || memeX >= maximumX) {
-        // Reverses the horizontal direction.
-        speedX = speedX * -1;
+    // Moves the image horizontally.
+    memeImage.style.left = randomX + "px";
 
-        // Keeps the meme inside the valid horizontal area.
-        memeX = Math.max(0, Math.min(memeX, maximumX));
-    }
-
-    // Checks whether the meme reached the top or bottom edge.
-    if (memeY <= 0 || memeY >= maximumY) {
-        // Reverses the vertical direction.
-        speedY = speedY * -1;
-
-        // Keeps the meme inside the valid vertical area.
-        memeY = Math.max(0, Math.min(memeY, maximumY));
-    }
-
-    // Applies the new horizontal position to the meme image.
-    memeImage.style.left = memeX + "px";
-
-    // Applies the new vertical position to the meme image.
-    memeImage.style.top = memeY + "px";
+    // Moves the image vertically.
+    memeImage.style.top = randomY + "px";
 }
