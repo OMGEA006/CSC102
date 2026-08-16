@@ -1,5 +1,11 @@
+
 // This function checks if the user's word or phrase is a palindrome.
 function checkPalindrome() {
+    // Gets the sound from the HTML page.
+    var backgroundSound = document.getElementById("us-lab-background");
+
+
+
     // Gets the text box.
     var userStringInput = document.getElementById("userString");
 
@@ -53,6 +59,11 @@ function checkPalindrome() {
         palindromeResult.innerHTML =
             "<p class='notPalindrome'>No, this is not a palindrome.</p>" +
             "<p>" + originalString + "</p>";
+    }
+    // Plays the sound if it is not already playing.
+    if (backgroundSound.paused) {
+    // Starts the sound.
+        backgroundSound.play();
     }
 }
 
