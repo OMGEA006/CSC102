@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!-- Student Name: Jayse Monty -->
+<html lang="en">
+<head>
+    <!-- Sets the character encoding. -->
+    <meta charset="UTF-8">
+    <!-- Makes the page fit different screen sizes. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Sets the browser tab title. -->
+    <title>Study Score Checker</title>
+
+    <style>
+        /* Gives the page a light blue background. */
+        body {
+            background-color: lightblue;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        /* Styles the main box. */
+        .mainBox {
+            width: 70%;
+            margin: 40px auto;
+            background-color: white;
+            border: 2px solid black;
+            padding: 20px;
+        }
+
+        /* Changes the heading color. */
+        h1 {
+            color: darkblue;
+        }
+
+        /* Adds space around each form row. */
+        .formRow {
+            margin: 15px;
+        }
+
+        /* Styles the labels. */
+        label {
+            font-weight: bold;
+        }
+
+        /* Styles the input boxes. */
+        input {
+            padding: 8px;
+            width: 60%;
+        }
+
+        /* Styles the submit button. */
+        button {
+            padding: 10px 20px;
+            background-color: lightgreen;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+
+        /* Styles validation messages. */
+        #validationMessage {
+            color: red;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        /* Styles the results area. */
+        #resultArea {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #eeeeee;
+            border: 1px solid gray;
+        }
+    </style>
+
+    <!-- Links the separate JavaScript file. -->
+    <script src="/Main/Js/checkscore.js" defer></script>
+</head>
+
+<body>
+    <!-- Opens the main content box. -->
+    <div class="mainBox">
+        <!-- Displays the page title. -->
+        <h1>Study Score Checker</h1>
+
+        <!-- Gives the user instructions. -->
+        <p>Enter your name and three quiz scores.</p>
+
+        <!-- Creates one form for all user input. -->
+        <form onsubmit="return false;">
+            <!-- Opens the name input section. -->
+            <div class="formRow">
+                <!-- Labels the name input. -->
+                <label for="studentName">Student Name:</label>
+                <!-- Moves the input to the next line. -->
+                <br>
+                <!-- Lets the user enter a name. -->
+                <input type="text" id="studentName">
+            </div>
+
+            <!-- Opens the first quiz input section. -->
+            <div class="formRow">
+                <!-- Labels the first score input. -->
+                <label for="score1">Quiz 1 Score:</label>
+                <!-- Moves the input to the next line. -->
+                <br>
+                <!-- Lets the user enter the first score. -->
+                <input type="number" id="score1">
+            </div>
+
+            <!-- Opens the second quiz input section. -->
+            <div class="formRow">
+                <!-- Labels the second score input. -->
+                <label for="score2">Quiz 2 Score:</label>
+                <!-- Moves the input to the next line. -->
+                <br>
+                <!-- Lets the user enter the second score. -->
+                <input type="number" id="score2">
+            </div>
+
+            <!-- Opens the third quiz input section. -->
+            <div class="formRow">
+                <!-- Labels the third score input. -->
+                <label for="score3">Quiz 3 Score:</label>
+                <!-- Moves the input to the next line. -->
+                <br>
+                <!-- Lets the user enter the third score. -->
+                <input type="number" id="score3">
+            </div>
+
+            <!-- Calls the JavaScript function when clicked. -->
+            <button type="submit" onclick="checkScores()">Check Scores</button>
+        </form>
+
+        <!-- Displays validation messages using innerHTML. -->
+        <div id="validationMessage"></div>
+
+        <!-- Displays the final results using innerHTML. -->
+        <div id="resultArea">
+            <!-- Shows the starting message. -->
+            <p>Your results will appear here.</p>
+        </div>
+    </div>
+</body>
+</html>
