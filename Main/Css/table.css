@@ -1,0 +1,68 @@
+/* Styles the entire webpage. */
+body {
+    background-color: lightblue;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+/* Styles the header. */
+header {
+    background-color: darkblue;
+    color: white;
+    padding: 15px;
+}
+
+/* Styles the navigation area. */
+nav {
+    background-color: navy;
+    padding: 15px;
+}
+
+/* Styles the navigation heading. */
+nav h2 {
+    color: white;
+}
+
+/* Styles the navigation links. */
+nav a {
+    color: white;
+    font-weight: bold;
+}
+
+/* Styles the main content area. */
+main {
+    width: 80%;
+    margin: 30px auto;
+    background-color: white;
+    padding: 20px;
+}
+
+/* Styles the table. */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Styles all table cells. */
+th,
+td {
+    border: 1px solid black;
+    padding: 12px;
+}
+
+/* Styles the table headings. */
+th {
+    background-color: lightblue;
+}
+
+/* Changes the row when the mouse is over it. */
+tr:hover {
+    background-color: lightgray;
+}
+
+/* Styles the footer. */
+footer {
+    background-color: darkblue;
+    color: white;
+    padding: 20px;
+}
